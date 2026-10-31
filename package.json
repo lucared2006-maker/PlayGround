@@ -1,0 +1,12 @@
+{
+  "name": "europa-1444",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline mobile-first grand strategy sandbox set in 1444.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

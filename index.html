@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#101b21">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Europa 1444 — Grand Strategy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="map" aria-label="Strategic map"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hud-row hud-top">
+      <div class="date-box" id="date-box">
+        <span id="date-day">1</span>
+        <span id="date-month">January</span>
+        <span id="date-year">1444</span>
+      </div>
+      <div class="speed-group" role="group" aria-label="Game speed">
+        <button class="speed" data-speed="0" aria-label="Pause">❚❚</button>
+        <button class="speed" data-speed="1" aria-label="Speed 1">▶</button>
+        <button class="speed" data-speed="2" aria-label="Speed 2">▶▶</button>
+        <button class="speed" data-speed="3" aria-label="Speed 3">▶▶▶</button>
+        <button class="speed" data-speed="4" aria-label="Speed 4">▶▶▶▶</button>
+      </div>
+      <button class="icon-btn" data-action="menu" aria-label="Menu">☰</button>
+    </div>
+    <div class="hud-row hud-res" id="hud-res"></div>
+  </div>
+
+  <button id="map-mode-btn" class="hidden" data-action="map-modes" aria-label="Map modes">
+    <span id="map-mode-icon">▣</span>
+    <span id="map-mode-name">Political</span>
+  </button>
+
+  <div id="toasts"></div>
+
+  <div id="sheet" class="hidden"></div>
+  <div id="panel" class="hidden"></div>
+  <div id="modal" class="hidden"></div>
+
+  <nav id="tabs" class="hidden">
+    <button data-tab="map" class="tab active"><span class="tab-icon">◈</span><span>Map</span></button>
+    <button data-tab="realm" class="tab"><span class="tab-icon">⚜</span><span>Realm</span></button>
+    <button data-tab="economy" class="tab"><span class="tab-icon">⚖</span><span>Economy</span></button>
+    <button data-tab="diplomacy" class="tab"><span class="tab-icon">✉</span><span>Diplomacy</span></button>
+    <button data-tab="military" class="tab"><span class="tab-icon">⚔</span><span>Military</span></button>
+    <button data-tab="tech" class="tab"><span class="tab-icon">✦</span><span>Tech</span></button>
+    <button data-tab="more" class="tab"><span class="tab-icon">☰</span><span>More</span></button>
+  </nav>
+
+  <div id="start" class="hidden">
+    <div class="start-top">
+      <div class="start-title">
+        <div class="eyebrow">A GRAND STRATEGY SANDBOX</div>
+        <h1>EUROPA <span>1444</span></h1>
+        <p>Rule a nation from the age of knights to the age of revolution. Trade, marry, conquer and endure.</p>
+      </div>
+      <div class="start-hint" id="start-hint">Tap a province on the map, or choose a realm below.</div>
+    </div>
+    <div class="start-picker">
+      <div class="start-actions">
+        <button id="continue-btn" class="btn gold">Continue Campaign</button>
+        <button id="random-btn" class="btn">Random Realm</button>
+        <button id="help-btn" class="btn">How to Play</button>
+      </div>
+      <div class="search-wrap">
+        <input id="country-search" type="search" placeholder="Search 147 realms…" autocomplete="off" spellcheck="false">
+        <span class="search-icon">⌕</span>
+      </div>
+      <div id="quick-picks" class="quick-picks"></div>
+      <div id="country-list" class="country-list"></div>
+      <div class="start-footer">
+        <label class="difficulty-label">Difficulty
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <button id="begin-btn" class="btn gold begin">Begin Campaign</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loading">
+    <div class="loader-emblem">⚜</div>
+    <div class="loader-title">EUROPA 1444</div>
+    <div class="loader-sub" id="loader-sub">Drawing the map of the known world…</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
